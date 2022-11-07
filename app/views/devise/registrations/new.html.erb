@@ -3,22 +3,22 @@
 <%= form_with model:@user,url: user_registration_path do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
- 
+
   <div class="field">
     <%= f.label :Name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name"%>
   </div>
 
   <div class="field">
     <%= f.label :kana_name %><br />
-    <%= f.text_field :kana_name %>
+    <%= f.text_field :kana_name, autocomplete: "kana_name" %>
   </div>
 
- 
- 
+
+
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="field">
