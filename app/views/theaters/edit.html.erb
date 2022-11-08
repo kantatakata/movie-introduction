@@ -1,0 +1,15 @@
+<h1></h1>
+<p></p>
+      <%= form_with model: @theater, url: theater_path, method: :patch do |f| %>
+      <div class="field row mb-5">
+      <%= f.label :title, "映画名",class: "col-2" %>
+      <%= f.text_field :title,class: "col-3"%>
+      <div class="col-1">
+      </div>
+      <%= f.label :introduction, "映画紹介文",class: "col-2" %>
+      <%= f.area_field :introduction,class: "col-3"%>
+
+      <%= f.submit '変更を保存', class: "col-2 p-2 btn btn-success" %>
+      </div>
+      <% end %>
+ </div>

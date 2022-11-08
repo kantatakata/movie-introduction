@@ -1,0 +1,41 @@
+<P><%= @user.name %></P>
+<P><%= @user.kana_name %></P>
+<% if @user.image.attached? %>
+  <%= image_tag @user.image, size: "50x50" %>
+<% else %>
+  <%= image_tag 'no_image', size: "50x50" %>
+<% end %>
+
+<%= link_to "編集",edit_user_path(@user.id) %>
+
+
+
+
+
+
+
+<h1>映画投稿</h1>
+    <%= form_with model:theater, local:true do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    
+    <%= f.label :introduction %>
+    <%= f.area_field :introduction %>
+    <%= f.submit %>
+  
+
+<h1>会員一覧</h1>
+  <table>
+    <th>
+      <% @user.each do |user| %>
+      <% if user.image.attached? %>
+      <%= image_tag user.image, size: "50x50" %>
+      <% else %>
+      <%= image_tag 'no_image', size: "50x50" %>
+      <% end %>
+    </th>
+    <th>名前</th>
+    <th><%= user.name %></th>
+    <th>フリガナ</th><br>
+    <th><%= user.kana_name %></th>
+  </table>

@@ -1,0 +1,2 @@
+module TheaterCommentsHelper
+end
