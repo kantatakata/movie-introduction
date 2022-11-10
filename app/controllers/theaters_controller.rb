@@ -10,7 +10,7 @@ class TheatersController < ApplicationController
     @theater = Theater.new(theater_params)
     @theater.user_id = current_user.id
     if @theater.save
-       redirect_to theater.path(@theater), notice: "新規投稿しました"
+       redirect_to theater_path(@theater), notice: "新規投稿しました"
     else
     @theaters = Theater.all
     @user = current_user
@@ -19,25 +19,26 @@ class TheatersController < ApplicationController
   end
 
   def show
-    @theater = Theater.find(parames[:id])
+    @theater = Theater.find(params[:id])
+
   end
 
   def edit
-    @theater = Theater.find(parames[:id])
+    @theater = Theater.find(params[:id])
   end
 
   def update
-    @theater = Theater.find(parames[:id])
+    @theater = Theater.find(params[:id])
     if @theater.update(theater_params)
-       redirect_to theater.path(@theater), notice: "投稿を編集しました"
+       redirect_to theater_path(@theater), notice: "投稿を編集しました"
     else
-       render "edit"
+       render :edit
     end
 
   end
 
  private
  def theater_params
-   params.require(:theater).permit(:title, :introduction)
+   params.require(:theater).permit(:title, :introduction, :genre_id)
  end
 end

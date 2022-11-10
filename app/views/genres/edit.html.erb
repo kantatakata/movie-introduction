@@ -1,2 +1,16 @@
-<h1>Genres#edit</h1>
-<p>Find me in app/views/genres/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-1">
+    </div>
+      <h5 class="d-flex justify-content-left mb-5 bg-secondary p-2 text-black bg-opacity-10">ジャンル編集</h5>
+  </div>
+      <%= form_with model: @genre, url: genre_path, method: :patch do |f| %>
+      <div class="field row mb-5">
+      <%= f.label :name, "ジャンル名",class: "col-2" %>
+      <%= f.text_field :name,class: "col-3"%>
+      <div class="col-1">
+      </div>
+      <%= f.submit '変更を保存', class: "col-2 p-2 btn btn-success" %>
+      </div>
+      <% end %>
+ </div>

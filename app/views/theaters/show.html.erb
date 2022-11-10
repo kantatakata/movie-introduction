@@ -1,12 +1,12 @@
 <h1>映画投稿詳細</h1>
 <table>
-  <% @theaters.each do |theater| %>
+ 
 <th>タイトル</th>
-<th><%= theater.title %></th>
+<th><%= @theater.title %></th>
 <!--<th>ジャンル</th><br>-->
 <!--<th><#%= theater.genes %></th>-->
 <th>紹介文</th><br>
-<th><%= theater.introduction %></th>
+<th><%= @theater.introduction %></th>
 <%= link_to "編集", edit_theater_path(@theater.id) %>
-  <% end %>
+  
 </table>

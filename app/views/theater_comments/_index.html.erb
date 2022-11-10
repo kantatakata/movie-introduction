@@ -1,0 +1,20 @@
+<table>
+  <tbody>
+      <% theater.theater_comments.each do |theater_comment| %>
+      <tr>
+        <td>
+          <%= link_to user_path(theater_comment.user) do %>
+            <%= image_tag theater_comment.user.get_profile_image, size: "100x100" %><br>
+            <%= theater_comment.user.name %>
+          <% end %>
+        </td>
+        <td><%= theater_comment.comment %></td>
+        <td>
+          <% if theater_comment.user == current_user %>
+            <%= link_to "Destroy", theater_theater_comment_path(theater, theater_comment), method: :delete, class: "btn btn-danger pull-right", remote: true %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
