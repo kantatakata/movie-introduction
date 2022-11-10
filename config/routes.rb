@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   get "about" =>"homes#about"
   
   resources :users, only: [:index, :show, :edit, :update]
-  resources :theaters, only: [:index, :create, :show, :edit, :update]
-  resources :theater_comments, only: [:create, :destroy]
-  resource :favorites, only: [:create, :destroy]
+  resources :theaters, only: [:index, :create, :show, :edit, :update] do
+    resources :theater_comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
+  end
+  
   resources :genres, only: [:index, :create, :edit]
 
 

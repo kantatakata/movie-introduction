@@ -1,10 +1,6 @@
 <P><%= @user.name %></P>
 <P><%= @user.kana_name %></P>
-<% if @user.image.attached? %>
-  <%= image_tag @user.image, size: "50x50" %>
-<% else %>
-  <%= image_tag 'no_image', size: "50x50" %>
-<% end %>
+<p><%= image_tag @user.get_profile_image, size:'100x100' %></p>
 
 <%= link_to "編集",edit_user_path(@user.id) %>
 
@@ -29,15 +25,12 @@
   <table>
     <th>
     <% @users.each do |user| %>
-      <% if user.image.attached? %>
-      <%= image_tag user.image, size: "50x50" %>
-      <% else %>
-      <%= image_tag 'no_image', size: "50x50" %>
-      <% end %>
+      <tr><%= image_tag user.get_profile_image, size:'100x100' %></tr>
       </th>
       <th>名前</th>
       <th><%= user.name %></th>
       <th>フリガナ</th><br>
       <th><%= user.kana_name %></th>
+      <th><%= link_to "おすすめ作品",user_path(user.id) %></th>
     <% end %>
   </table>

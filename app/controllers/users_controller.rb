@@ -10,6 +10,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @theaters = @user.theaters
       @theater = Theater.new
+      @genres = Genre.all
+
     end
 
     def edit

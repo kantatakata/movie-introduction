@@ -5,9 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # プロフィール画像
-  has_one_attached :image
+  has_one_attached :profile_image
   # アソシエーション記述
-  has_many :theaters 
+  has_many :theaters
   has_many :theater_comments
   has_many :favorites
   # ゲストログイン機能
@@ -20,4 +20,10 @@ class User < ApplicationRecord
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
       end
   end
+
+  # プロフィール画像導入
+  def get_profile_image
+  (profile_image.attached?) ? profile_image : 'no_image.jpg'
+  end
+
 end

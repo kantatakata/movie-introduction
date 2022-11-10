@@ -41,7 +41,7 @@
     <% @theaters.each do |theater| %>
       <tr>
         <td><%= theater.title %></td>
-        <th><%= theater.genre_id %></th>
+        <th><%= @genres.find(theater.genreid).name %></th>
         <td><%= theater.introduction %></td>
         <td class=<%= "favorite-" + theater.id.to_s %> >
             <%= render "favorites/btn", theater: theater %>

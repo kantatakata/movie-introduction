@@ -3,6 +3,7 @@ class TheatersController < ApplicationController
     @theaters = Theater.all
     @theater = Theater.new
     @user = current_user
+    @genres = Genre.all
 
   end
 
@@ -20,7 +21,8 @@ class TheatersController < ApplicationController
 
   def show
     @theater = Theater.find(params[:id])
-
+    @genres = Genre.all
+    @theater_comment = TheaterComment.new
   end
 
   def edit
