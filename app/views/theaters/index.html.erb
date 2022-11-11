@@ -1,11 +1,6 @@
 <P><%= @user.name %></P>
 <P><%= @user.kana_name %></P>
-<% if @user.image.attached? %>
-  <%= image_tag @user.image, size: "50x50" %>
-<% else %>
-  <%= image_tag 'no_image', size: "50x50" %>
-<% end %>
-
+  <tr><%= image_tag @user.get_profile_image, size:'100x100' %></tr>
 <%= link_to "編集",edit_user_path(@user.id) %>
 <p><%= @user.introduction %></p>
 
@@ -41,7 +36,7 @@
     <% @theaters.each do |theater| %>
       <tr>
         <td><%= theater.title %></td>
-        <th><%= @genres.find(theater.genreid).name %></th>
+        <th><%= @genres.find(theater.genre_id).name %></th>
         <td><%= theater.introduction %></td>
         <td class=<%= "favorite-" + theater.id.to_s %> >
             <%= render "favorites/btn", theater: theater %>

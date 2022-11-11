@@ -1,4 +1,6 @@
 class TheatersController < ApplicationController
+    before_action :authenticate_user!
+    before_action :ensure_correct_user, only: [:create, :edit, :update]
   def index
     @theaters = Theater.all
     @theater = Theater.new
@@ -43,4 +45,11 @@ class TheatersController < ApplicationController
  def theater_params
    params.require(:theater).permit(:title, :introduction, :genre_id)
  end
+ 
+  def ensure_correct_user
+    @theater = Theater.find(params[:id])
+    unless @theater.user == current_user
+      redirect_to theaters_path
+    end
+  end
 end

@@ -12,6 +12,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to root_path, alert: 'ゲストユーザーの編集・削除はできません'
     end
   end
+  def after_sign_in_path_for(resource)
+    root_path
+  end
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
   # GET /resource/sign_up
   # def new
   #   super

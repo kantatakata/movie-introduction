@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   root :to => "homes#top"
   get "about" =>"homes#about"
-  
+  get "search" => "searches#search"
   resources :users, only: [:index, :show, :edit, :update]
   resources :theaters, only: [:index, :create, :show, :edit, :update] do
     resources :theater_comments, only: [:create, :destroy]
@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   end
   
   resources :genres, only: [:index, :create, :edit]
-
-
+  
+  get "search" => "searches#search"
 end

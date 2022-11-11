@@ -18,7 +18,7 @@ class Theater < ApplicationRecord
     if method == 'perfect'
       Theater.where(title: content)
     elsif method == 'forward'
-      Theeater.where('title LIKE ?', content+'%')
+      Theeter.where('title LIKE ?', content+'%')
     elsif method == 'backward'
       Theater.where('title LIKE ?', '%'+content)
     else
