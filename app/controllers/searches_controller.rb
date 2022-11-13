@@ -8,11 +8,14 @@ class SearchesController < ApplicationController
     @method = params[:method]
 
     if @model == "User"
-      @records = User.search_for(@content, @method)
+      # binding.pry
+      @users = User.search_for(@content, @method)
     elsif @model == "Theater"
-      @records = Theater.search_for(@content, @method)
+      @theaters = Theater.search_for(@content, @method)
     else
-      @records = Genre.search_for(@content, @method)
+      @genres = Genre.search_for(@content, @method)
     end
+
+
   end
 end
