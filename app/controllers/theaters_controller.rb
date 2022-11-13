@@ -1,6 +1,6 @@
 class TheatersController < ApplicationController
     before_action :authenticate_user!
-    before_action :ensure_correct_user, only: [:create, :edit, :update]
+    before_action :ensure_correct_user, only: [:edit, :update]
   def index
     @theaters = Theater.all
     @theater = Theater.new

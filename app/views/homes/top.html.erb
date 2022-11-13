@@ -1,4 +1,33 @@
-<h1>ようこそ、ちゃるtheaterへ！</h1>
-<p>画像</p>
-<p>ジャンル一覧</p>
-
+<div class="jumbotron" style="background: url(<%= asset_path "theater.jpg"%>)center; background-size:cover;">
+  <div class="row px-10">
+    <div class="col-md-12">
+      <div class="container col-5 p-4 text-center" style="background-color:rgba(255,255,255,0.9);">
+        <h3 style="color:#000000;"><strong>ようこそ、ちゃるtheaterへ！</strong></h3><br />
+        <p>
+          観たいジャンルの映画を検索して見つけたり、<br />
+          おすすめしたい映画を紹介する<br />
+          映画情報共有サイト
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 class="text-center">新着映画投稿いいねランキングTOP3</h3>
+  <table class='table table-hover table-inverse'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>紹介文</th>
+      </tr>
+    </thead>
+  　<tbody>
+      <% @theater_favorite_ranks.each.with_index(1) do |theater, i| %>
+      <tr>
+        <td class="p-3  text-danger">第<%= i %>位</td>
+        <td><%= theater.title %></td>
+        <td><%= theater.introduction %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

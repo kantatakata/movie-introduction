@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
 
-  resources :genres, only: [:index, :create, :edit]
+  resources :genres, only: [:index, :create, :edit, :update]
 
   get "search" => "searches#search"
 end
