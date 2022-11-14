@@ -13,21 +13,27 @@
   </div>
 </div>
 <h3 class="text-center">新着映画投稿いいねランキングTOP3</h3>
-  <table class='table table-hover table-inverse'>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th>紹介文</th>
-      </tr>
-    </thead>
-  　<tbody>
-      <% @theater_favorite_ranks.each.with_index(1) do |theater, i| %>
-      <tr>
-        <td class="p-3  text-danger">第<%= i %>位</td>
-        <td><%= theater.title %></td>
-        <td><%= theater.introduction %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+    </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>紹介文</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @theater_favorite_ranks.each.with_index(1) do |theater, i| %>
+          <tr>
+            <td class="p-3 font-weight-bold text-danger">第<%= i %>位</td>
+            <td><%= theater.title %></td>
+            <td><%= theater.introduction %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>

@@ -40,7 +40,7 @@
      <% @theaters.each do |theater| %>
         <tr>
          <td><%= theater.title %></td>
-         <th><%= @genres.find(theater.genre_id).name %></th>
+         <th><%= theater.genre.name %></th>
          <td><%= theater.introduction %></td>
          <td class=<%= "favorite-" + theater.id.to_s %> >
             <%= render "favorites/btn", theater: theater %>
@@ -63,11 +63,11 @@
     </tr>
    </thead>
     <tbody>
-     <% @theaters.each do |theater| %>
+     <% @genres.each do |genre| %>
         <tr>
-         <td><%= theater.title %></td>
-         <th><%= @genres.find(theater.genre_id).name %></th>
-         <td><%= theater.introduction %></td>
+         <td><%= genre.theaters.title %></td>
+         <th><%= genre.name %></th>
+         <td><%= genre.theater.introduction %></td>
          <td class=<%= "favorite-" + theater.id.to_s %> >
             <%= render "favorites/btn", theater: theater %>
          </td>

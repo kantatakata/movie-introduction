@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
 
   # 会員、映画、ジャンルの検索
   def search
-     binding.irb
+    # binding.irb
     @model = params[:model]
     @content = params[:content]
     @method = params[:method]
@@ -15,8 +15,5 @@ class SearchesController < ApplicationController
     else
       @genres = Genre.search_for(@content, @method)
     end
-
-    @theaters = Theater.all
-    @genres = Genre.all
   end
 end

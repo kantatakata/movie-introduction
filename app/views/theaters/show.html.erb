@@ -1,34 +1,38 @@
-<h1>映画投稿詳細</h1>
-<table>
-  <tr>
-    <td>タイトル</td>
-    <td><%= @theater.title %></td>
-  </tr>
-  <tr>
-    <td>ジャンル</td>
-    <td><%= @genres.find(@theater.genre_id).name %></td>
-  </tr>
-  <tr>
-    <td>紹介文</td>
-    <td><%= @theater.introduction %></td>
-  </tr>
-  <tr>
-    <td>
-    <%= link_to "編集", edit_theater_path(@theater.id) %>
-    </td>
-
-    <td class=<%= "favorite-" + @theater.id.to_s %> >
-    <%= render "favorites/btn", theater: @theater %>
-    </td>
-    <td class="theater-comments-counter">
-    <%= render "theater_comments/counter", theater: @theater %>
-    </td>
-    
-    <div class="theater-comments-index">
-    <%= render "theater_comments/index", theater: @theater %>
-    </div>
+<div class='container'>
+  <div class='row'>
+      <h1>映画投稿詳細</h1>
+      <table>
+        <tr>
+          <td>タイトル</td>
+          <td><%= @theater.title %></td>
+        </tr>
+        <tr>
+          <td>ジャンル</td>
+          <td><%= @genres.find(@theater.genre_id).name %></td>
+        </tr>
+        <tr>
+          <td>紹介文</td>
+          <td><%= @theater.introduction %></td>
+        </tr>
+        <tr>
+          <td>
+          <%= link_to "編集", edit_theater_path(@theater.id) %>
+          </td>
       
-    <%= render "theater_comments/form", theater: @theater, theater_comment: @theater_comment %>
-
-  </tr>
-</table>
+          <td class=<%= "favorite-" + @theater.id.to_s %> >
+          <%= render "favorites/btn", theater: @theater %>
+          </td>
+          <td class="theater-comments-counter">
+          <%= render "theater_comments/counter", theater: @theater %>
+          </td>
+          
+          <div class="theater-comments-index">
+          <%= render "theater_comments/index", theater: @theater %>
+          </div>
+            
+          <%= render "theater_comments/form", theater: @theater, theater_comment: @theater_comment %>
+      
+        </tr>
+      </table>
+  </div>
+</div>

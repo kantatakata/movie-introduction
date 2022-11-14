@@ -1,48 +1,73 @@
-<P><%= @user.name %></P>
-<P><%= @user.kana_name %></P>
-  <tr><%= image_tag @user.get_profile_image, size:'100x100' %></tr>
-<%= link_to "編集",edit_user_path(@user.id) %>
-<p><%= @user.introduction %></p>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-2'>
+      <table class='table'>
+        <tr>
+          <td class='text-center font-weight-bold'><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td class='text-center font-weight-bold'><%= @user.kana_name %></td>
+        </tr>
+        <tr>
+        <td class="text-center"><%= image_tag @user.get_profile_image, size:'100x100' %></td>
+        </tr>
+        <tr>
+        <td class="text-center"><%= link_to "編集",edit_user_path(@user.id), class: 'btn btn-success'%></td>
+        </tr>
+      </table>
+
+
+
+      <h4>映画投稿</h4>
+      <%= form_with model:@theater, local:true do |f| %>
+      <div class="field mb-2">
+      <%= f.label :title,"タイトル",class: "font-weight-bold" %><br>
+      <%= f.text_field :title %>
+      </div>
+      <div class="field mb-2">
+      <%= f.label :genre_id, "ジャンル",class: "font-weight-bold"  %><br>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "--選択してください--" %>
+      </div>
+      <div class="field mb-2">
+      <%= f.label :introduction,"紹介文",class: "font-weight-bold"  %><br>
+      <%= f.text_area :introduction %>
+      </div>
+      <div class="action mb-5">
+      <%= f.submit %>
+      </div>
+      <% end %>
+    </div>
 
 
 
 
 
-
-
-<h1>映画投稿</h1>
-    <%= form_with model:@theater, local:true do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :genre_id, "ジャンル" %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "--選択してください--" %>
-    <%= f.label :introduction %>
-    <%= f.text_field :introduction %>
-    <%= f.submit %>
-    <% end %>
-
-<h1>映画投稿一覧</h1>
-<% render 'layouts/errors', obj:@theater %>
-  <table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>ジャンル</th>
-      <th>紹介文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @theaters.each do |theater| %>
-      <tr>
-        <td><%= theater.title %></td>
-        <th><%= @genres.find(theater.genre_id).name %></th>
-        <td><%= theater.introduction %></td>
-        <td class=<%= "favorite-" + theater.id.to_s %> >
-            <%= render "favorites/btn", theater: theater %>
-        </td>
-        <td><%= render "theater_comments/counter", theater: theater %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class='col-md-9 offset-md-1'>
+    <h3>映画投稿一覧</h3>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th class="col-2">ジャンル</th>
+            <th>紹介文</th>
+            <th class="col-2"></th>
+            <th class="col-2"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @theaters.each do |theater| %>
+          <tr>
+            <td><%= link_to theater.title,theater, class: "theater_#{theater.id}" %></td>
+            <td><%= @genres.find(theater.genre_id).name %></td>
+            <td><%= theater.introduction %></td>
+            <td class=<%= "favorite-" + theater.id.to_s %> >
+                <%= render "favorites/btn", theater: theater %>
+            </td>
+            <td><%= render "theater_comments/counter", theater: theater %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

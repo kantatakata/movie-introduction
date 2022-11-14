@@ -1,16 +1,19 @@
-<footer>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-
-  <p class="test-center">映画情報共有サイト</p>
-  <% if user_signed_in? %>
-   <li>
-    <%= link_to user_path(current_user),class: 'nav-link text-light' do %>
-    <i class="fas fa-home"></i> Home
-    <% end %>
-   </li>
-    <% else %>
-    <% end %>
-  </div>
-  </nav>
+<footer class="bg-dark">
+ <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+ <div class="container mt-5">
+ <div class='row'>
+ <div class='mx-auto'>
+ <p class="text-center text-white">映画情報共有サイト</p>
+ <% if user_signed_in? %>
+ <li>
+ <%= link_to genres_path,class: 'nav-link text-light' do %>
+ <i class="fas fa-screen-users"></i> Genre
+ <% end %>
+ </li>
+ <% else %>
+ <% end %>
+ </div>
+ </div>
+ </div>
+ </nav>
 </footer>
