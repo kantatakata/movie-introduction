@@ -10,6 +10,8 @@
         </tr>
         <tr>
         <td><%= image_tag @user.get_profile_image, size:'100x100' %></td>
+        </tr>
+        <tr>
         <td class="text-center"><%= link_to "編集",edit_user_path(@user.id), class: 'btn btn-success'%></td>
         </tr>
       </table>

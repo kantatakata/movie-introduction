@@ -11,11 +11,11 @@ class GenresController < ApplicationController
   end
 
   def edit
-    @genre = genre.find(params[:id])
+    @genre = Genre.find(params[:id])
   end
   
   def update
-      @genre = genre.find(params[:id])
+      @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
        redirect_to genres_path, notice: 'ジャンル登録しました'
     else

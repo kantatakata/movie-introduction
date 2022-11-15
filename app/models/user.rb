@@ -10,6 +10,12 @@ class User < ApplicationRecord
   has_many :theaters
   has_many :theater_comments
   has_many :favorites
+  
+  # バリデーション
+     validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+     validates :kana_name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+
+  
   # ゲストログイン機能
   def self.guest
       find_or_create_by!(email: 'guest@example.com') do |user|

@@ -17,6 +17,7 @@ class TheatersController < ApplicationController
     else
     @theaters = Theater.all
     @user = current_user
+    @genres = Genre.all
        render "index"
     end
   end

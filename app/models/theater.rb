@@ -6,6 +6,7 @@ class Theater < ApplicationRecord
   belongs_to :genre
   
   validates :title,presence:true
+  # validates :genre_id,presence:true
   validates :introduction,presence:true,length:{maximum:200}
   
   # いいね機能

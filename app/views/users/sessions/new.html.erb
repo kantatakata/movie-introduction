@@ -2,9 +2,10 @@
   <div class="row">
     <section class="inner">
     <h2 class="section-ttl">ログイン</h2>
-    <% if flash[:danger] %>
-　　<p class="text-red"><%= flash[:danger] %></p>
-　　<% end %>
+    <div class='login-flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
       <%= form_with model:@user, url: user_session_path do |f| %>
         <div class="field mb-2">
           <%= f.label :name,"名前",class: "font-weight-bold"%><br />

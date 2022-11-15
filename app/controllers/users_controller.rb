@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     def update
        @user = User.find(params[:id])
        if @user.update(user_params)
-         redirect_to user_path(@user), notice: "会員編集しました"
+         redirect_to users_path, notice: "会員編集しました"
        else
          render "edit"
        end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-      params.require(:user).permit(:name, :kana_name, :email, :encrypted_password, :profile_image)
+      params.require(:user).permit(:name, :kana_name, :email, :encrypted_password, :profile_image, :introduction)
     end
 
     def ensure_correct_user

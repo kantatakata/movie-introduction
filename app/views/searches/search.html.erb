@@ -67,11 +67,11 @@
         <tr>
          <td><%= genre.theaters.title %></td>
          <th><%= genre.name %></th>
-         <td><%= genre.theater.introduction %></td>
-         <td class=<%= "favorite-" + theater.id.to_s %> >
-            <%= render "favorites/btn", theater: theater %>
-         </td>
-         <td><%= render "theater_comments/counter", theater: theater %></td>
+         <td><%= genre.theaters.introduction %></td>
+        <!-- <td class=<3%= "favorite-" + theater.id.to_s %> >-->
+        <!--    <3%= render "favorites/btn", theater: theater %>-->
+        <!-- </td>-->
+        <!-- <td><3%= render "theater_comments/counter", theater: theater %></td>-->
         </tr>
      <% end %>
     </tbody>
