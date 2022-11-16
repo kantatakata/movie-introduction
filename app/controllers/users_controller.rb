@@ -28,7 +28,17 @@ class UsersController < ApplicationController
          render "edit"
        end
     end
+    
+  def unsubscribe
+      @user = current_user
+  end
 
+  def withdraw
+    @user.update(is_deleted: false)
+    reset_session
+    redirect_to root_path
+  end
+  
     private
     def user_params
       params.require(:user).permit(:name, :kana_name, :email, :encrypted_password, :profile_image, :introduction)

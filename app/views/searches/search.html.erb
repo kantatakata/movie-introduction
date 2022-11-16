@@ -63,11 +63,12 @@
     </tr>
    </thead>
     <tbody>
+
      <% @genres.each do |genre| %>
         <tr>
-         <td><%= genre.theaters.title %></td>
+         <td><%= genre.theaters.title%></td>
          <th><%= genre.name %></th>
-         <td><%= genre.theaters.introduction %></td>
+         <td><%= genre.theater.introduction %></td>
         <!-- <td class=<3%= "favorite-" + theater.id.to_s %> >-->
         <!--    <3%= render "favorites/btn", theater: theater %>-->
         <!-- </td>-->
