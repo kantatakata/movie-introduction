@@ -10,12 +10,12 @@ class User < ApplicationRecord
   has_many :theaters
   has_many :theater_comments
   has_many :favorites
-  
+
   # バリデーション
      validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
      validates :kana_name, length: { minimum: 2, maximum: 20 }, uniqueness: true
 
-  
+
   # ゲストログイン機能
   def self.guest
       find_or_create_by!(email: 'guest@example.com') do |user|
@@ -31,7 +31,7 @@ class User < ApplicationRecord
   def get_profile_image
   (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
-  
+
   # 検索機能
   def self.search_for(content, method)
     if method == 'perfect'
@@ -43,5 +43,10 @@ class User < ApplicationRecord
     else
       User.where('name LIKE ?', '%'+content+'%')
     end
+  end
+  # 退会機能
+  # is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
   end
 end
