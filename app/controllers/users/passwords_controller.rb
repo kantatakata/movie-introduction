@@ -2,7 +2,7 @@
 
 class Users::PasswordsController < Devise::PasswordsController
    # ゲスト会員編集・削除防止
-  before_action :check_guest, only: :create
+before_action :check_guest, only: :create
 
   def check_guest
     if params[:user][:email].downcase == 'guest@example.com'
