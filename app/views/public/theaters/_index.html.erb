@@ -1,0 +1,25 @@
+    <h3>映画投稿一覧</h3>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th class="col-2">ジャンル</th>
+            <th>紹介文</th>
+            <th class="col-2"></th>
+            <th class="col-2"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @theaters.each do |theater| %>
+          <tr>
+            <td><%= link_to theater.title,theater, class: "theater_#{theater.id}" %></td>
+            <td><%= @genres.find(theater.genre_id).name %></td>
+            <td><%= theater.introduction %></td>
+            <td class=<%= "favorite-" + theater.id.to_s %> >
+                <%= render "favorites/btn", theater: theater %>
+            </td>
+            <td><%= render "theater_comments/counter", theater: theater %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>

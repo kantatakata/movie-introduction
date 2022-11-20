@@ -2,7 +2,7 @@ class Theater < ApplicationRecord
 
   has_many :theater_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  belongs_to :user
+  belongs_to :customer
   belongs_to :genre
   
   validates :title,presence:true
@@ -10,8 +10,8 @@ class Theater < ApplicationRecord
   validates :introduction,presence:true,length:{maximum:200}
   
   # いいね機能
-  def favorited_by?(user)
-    favorites.where(user_id: user.id).exists?
+  def favorited_by?(customer)
+    favorites.where(customer_id: customer.id).exists?
   end
   
   # 映画タイトル検索機能

@@ -1,5 +1,5 @@
 class TheaterComment < ApplicationRecord
-  belongs_to :user
+  belongs_to :customer
   belongs_to :theater
   
   validates :comment, presence: true

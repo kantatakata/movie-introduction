@@ -1,0 +1,21 @@
+      <h3>会員一覧</h3>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>名前</th>
+            <th>自己紹介文</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% customers.each do |customer| %>
+          <tr>
+            <td><%= image_tag customer.get_profile_image, size:'100x100' %></td>
+            <td><%= customer.name %></td>
+            <td><%= customer.introduction %></td>
+            <td><%= link_to "おすすめ作品",customer_path(customer.id) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
