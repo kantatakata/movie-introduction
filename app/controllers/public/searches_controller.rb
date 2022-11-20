@@ -8,8 +8,8 @@ class Public::SearchesController < ApplicationController
     @content = params[:content]
     @method = params[:method]
 
-    if @model == "Customer"
-      @customers = Customer.search_for(@content, @method)
+    if @model == "User"
+      @users = User.search_for(@content, @method)
     elsif @model == "Theater"
       @theaters = Theater.search_for(@content, @method)
     else

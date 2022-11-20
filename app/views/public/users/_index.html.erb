@@ -9,12 +9,12 @@
           </tr>
         </thead>
         <tbody>
-        <% customers.each do |customer| %>
+        <% @users.each do |user| %>
           <tr>
-            <td><%= image_tag customer.get_profile_image, size:'100x100' %></td>
-            <td><%= customer.name %></td>
-            <td><%= customer.introduction %></td>
-            <td><%= link_to "おすすめ作品",customer_path(customer.id) %></td>
+            <td><%= image_tag user.get_profile_image, size:'100x100' %></td>
+            <td><%= user.name %></td>
+            <td><%= user.introduction %></td>
+            <td><%= link_to "おすすめ作品",user_path(user.id) %></td>
           </tr>
         <% end %>
         </tbody>

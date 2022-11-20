@@ -1,7 +1,7 @@
 class Favorite < ApplicationRecord
   
-  belongs_to :customer
+  belongs_to :user
   belongs_to :theater
-  validates_uniqueness_of :theater_id, scope: :customer
+  validates_uniqueness_of :theater_id, scope: :user
   
 end

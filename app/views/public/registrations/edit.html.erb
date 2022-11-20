@@ -4,7 +4,7 @@
       <section class="inner">
         <h2 class="section-ttl">パスワード編集</h2>
       
-        <%= form_with model: @customer, url: customer_registration_path, id: 'edit_customer', class: 'edit_customer', local: true do |f| %>
+        <%= form_with model: @user, url: user_registration_path, id: 'edit_user', class: 'edit_user', local: true do |f| %>
           <%= render "layouts/errors", obj: resource %>
           <div class="field mb-2">
             <%= f.label :email, "メールアドレス" %><br />

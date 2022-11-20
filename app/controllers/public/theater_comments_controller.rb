@@ -1,7 +1,7 @@
 class Public::TheaterCommentsController < ApplicationController
   def create
     theater = Theater.find(params[:theater_id])
-    @comment = current_customer.theater_comments.new(theater_comment_params)
+    @comment = current_user.theater_comments.new(theater_comment_params)
     @comment.theater_id = theater.id
     @comment.save
 

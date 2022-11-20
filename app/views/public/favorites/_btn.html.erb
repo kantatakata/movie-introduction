@@ -1,4 +1,4 @@
-<% if theater.favorited_by?(current_customer) %>
+<% if theater.favorited_by?(current_user) %>
   <%= link_to theater_favorites_path(theater), method: :delete, remote: true do %>
   <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
   <%= theater.favorites.count %> いいね

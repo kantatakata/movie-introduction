@@ -1,22 +1,22 @@
 class Public::TheatersController < ApplicationController
-    before_action :authenticate_customer!
-    before_action :ensure_correct_customer, only: [:edit, :update]
+    before_action :authenticate_user!
+    before_action :ensure_correct_user, only: [:edit, :update]
   def index
     @theaters = Theater.all
     @theater = Theater.new
-    @customer = current_customer
+    @user = current_user
     @genres = Genre.all
 
   end
 
   def create
     @theater = Theater.new(theater_params)
-    @theater.customer_id = current_customer.id
+    @theater.user_id = current_user.id
     if @theater.save
        redirect_to theater_path(@theater), notice: "新規投稿しました"
     else
     @theaters = Theater.all
-    @customer = current_customer
+    @user = current_user
     @genres = Genre.all
        render "index"
     end
@@ -47,9 +47,9 @@ class Public::TheatersController < ApplicationController
    params.require(:theater).permit(:title, :introduction, :genre_id)
  end
  
-  def ensure_correct_customer
+  def ensure_correct_user
     @theater = Theater.find(params[:id])
-    unless @theater.customer == current_customer
+    unless @theater.user == current_user
       redirect_to theaters_path
     end
   end

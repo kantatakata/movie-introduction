@@ -1,8 +1,8 @@
 
   <!--検索対象モデルがUserの時 -->
-  <% if @model == "Customer" %>
-  <h3>Customers search for "<%= @content %>"</h3>
-  <%= render 'info', customer: current_customer %>
+  <% if @model == "User" %>
+  <h3>Users search for "<%= @content %>"</h3>
+  <%= render 'info', user: current_user %>
 
    <!--検索対象モデルがTheaterの時 -->
   <% elsif @model == "Theater" %>

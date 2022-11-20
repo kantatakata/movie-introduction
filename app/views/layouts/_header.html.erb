@@ -9,12 +9,12 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li>
-            <%= link_to customer_path(current_customer),class: 'nav-link text-light' do %>
+            <%= link_to user_path(current_user),class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> Home
             <% end %>
           </li>
           <li>
-            <%=  link_to customers_path,class: 'nav-link text-light' do %>
+            <%=  link_to users_path,class: 'nav-link text-light' do %>
               <i class="fas fa-users"></i> Users
             <% end %>
           </li>
@@ -24,20 +24,20 @@
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_customer_session_path,class: 'nav-link text-light', method: :delete do %>
+            <%= link_to destroy_user_session_path,class: 'nav-link text-light', method: :delete do %>
               <i class="fas fa-sign-out-alt"></i> logout
             <% end %>
           </li>
 
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              その他
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item"><%= link_to "ジャンル", genres_path %></a></li>
-              <li><a class="dropdown-item"><%= link_to "退会", confirm_unsubscribe_path %></a></li>
-            </ul>
-          </li>        
+          <!--<li class="nav-item dropdown">-->
+          <!--  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
+          <!--    その他-->
+          <!--  </a>-->
+          <!--  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
+          <!--    <li><a class="dropdown-item"><#%= link_to "ジャンル", genres_path %></a></li>-->
+          <!--    <li><a class="dropdown-item"><#%= link_to "退会", confirm_unsubscribe_path %></a></li>-->
+          <!--  </ul>-->
+          <!--</li>        -->
           <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>
@@ -50,24 +50,24 @@
             <% end %>
           </li>
           <li>
-            <%= link_to new_customer_registration_path,class: 'nav-link text-light' do %>
+            <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
               <i class="fas fa-user-plus"></i> sign up
             <% end %>
           </li>
           <li>
-            <%= link_to new_customer_session_path ,class: 'nav-link text-light' do %>
+            <%= link_to new_user_session_path ,class: 'nav-link text-light' do %>
               <i class="fas fa-sign-in-alt"></i> login
             <% end %>
           </li>
           <li>
-            <%= link_to  customers_guest_sign_in_path, method: :post ,class: 'nav-link text-light' do %>
+            <%= link_to  users_guest_sign_in_path, method: :post ,class: 'nav-link text-light' do %>
               <i class="fas fa-sign-in-alt"></i> ゲストログイン
             <% end %>
           </li>
 
         <% end %>
         </ul>
-         <%= render 'searches/search' %>
+         <%= render 'public/searches/search' %>
       </div>
     </div>
   </nav>
