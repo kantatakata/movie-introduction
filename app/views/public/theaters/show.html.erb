@@ -18,19 +18,19 @@
             <td><%= link_to "編集", edit_theater_path(@theater.id), class: "btn btn-info pull-right" %></td>
 
             <td class=<%= "favorite-" + @theater.id.to_s %> >
-            <%= render "favorites/btn", theater: @theater %>
+            <%= render "public/favorites/btn", theater: @theater %>
             </td>
             <td class="theater-comments-counter">
-            <%= render "theater_comments/counter", theater: @theater %>
+            <%= render "public/theater_comments/counter", theater: @theater %>
             </td>
           </tr>
         </tbody>
       </table>
-      
+
       <div class="theater-comments-index">
-      　<%= render "theater_comments/index", theater: @theater %>
+      　<%= render "public/theater_comments/index", theater: @theater %>
       </div>
-        <%= render "theater_comments/form", theater: @theater, theater_comment: @theater_comment %>
+        <%= render "public/theater_comments/form", theater: @theater, theater_comment: @theater_comment %>
     </div>
   </div>
 </div>
