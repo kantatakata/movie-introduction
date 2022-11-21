@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
-    before_action :authenticate_user!
-    before_action :ensure_correct_user, only: [:edit, :update]
+    before_action :authenticate_admin!
+    before_action :ensure_correct_admin, only: [:edit, :update]
     def index
       @users = User.all
     end
@@ -29,7 +29,7 @@ class Admin::UsersController < ApplicationController
       params.require(:user).permit(:name, :kana_name, :email, :introduction, :is_deleted)
     end
 
-    def ensure_correct_user
+    def ensure_correct_admin
       @user = User.find(params[:id])
     end
 

@@ -1,10 +1,11 @@
 <div class="container">
+  <%= render 'layouts/errors', obj: @genre %>
   <div class="row">
     <div class="col-1">
     </div>
       <h5 class="d-flex justify-content-left mb-5 bg-light p-2 text-black">ジャンル一覧・追加</h5>
   </div>
-        <%= form_with model: @genre,url:genres_path do |f| %>
+        <%= form_with model: @genre,url:admin_genres_path do |f| %>
         <div class="field row mb-5">
           <%= f.label :name, "ジャンル名",class: "col-2" %>
           <%= f.text_field :name,class: "col-3"%>
@@ -26,7 +27,7 @@
        <tr>
         <td><%= genre.name %></td>
         <td>
-        <%= link_to edit_genre_path(genre.id),class: 'nav-link text-light' do %>
+        <%= link_to edit_admin_genre_path(genre.id),class: 'nav-link text-light' do %>
         <button type="button" class="btn btn-success">編集する</button>
         <% end %>
         </td>

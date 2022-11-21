@@ -1,5 +1,5 @@
 class Genre < ApplicationRecord
-  
+
   has_many :theaters
   validates :name, presence: true
   # 検索名前機能
