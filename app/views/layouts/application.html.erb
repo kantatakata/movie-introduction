@@ -12,10 +12,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
-    <%= render 'layouts/header' %>
+    <% if admin_signed_in? %>
+    <%= render 'layouts/admin_header' %>
+    <% else %>
+    <%= render 'layouts/user_header' %>
+    <% end %>
     <main>
-    <% if notice %>  
+    <% if notice %>
       <p class="alert alert-primary"><%= notice %></p>
     <% end %>
     <% if alert %>

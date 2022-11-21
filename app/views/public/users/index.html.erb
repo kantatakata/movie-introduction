@@ -1,14 +1,18 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-3'>
-    <%= render 'info', user: current_user %>
-    <%= render 'public/theaters/form', theater: @theater %>
+    <div class='col-md-2'>
+
+        <!--会員情報-->
+      <%= render 'info', user: current_user %>
+
+      　<!--映画新規投稿-->
+      <%= render 'public/theaters/form', theater: @theater %>
     </div>
 
+    <div class='col-md-9 offset-md-1'>
 
-
-    <div class='col-md-8 offset-md-1'>
-    <%= render 'index',users: @users %>
+      　<!--映画新規投稿-->
+      <%= render 'index',users: @users %>
     </div>
   </div>
 </div>

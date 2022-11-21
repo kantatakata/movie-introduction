@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #ゲストログインのルーティング
   devise_scope :user do
-  post '/users/guest_sign_in', to: 'users/sessions#new_guest'
+  post '/public/guest_sign_in', to: 'public/sessions#new_guest'
   end
 
   # 管理者ログイン機能
@@ -10,18 +10,18 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
 }
   namespace :admin do
-    get 'top' => 'homes#top', as: 'top'
-    get 'search' => 'homes#search', as: 'search'
     resources :users, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
   end
 
   #新規登録、ログイン、パスワード機能
   devise_for :users, controllers: {
-   registrations: "users/registrations",
-   sessions: "users/sessions",
-   passwords: "users/passswords"
+   registrations: "public/registrations",
+   sessions: "public/sessions",
+   passwords: "public/passswords"
 }
+
+
   scope module: :public do
     root :to => "homes#top"
     get "about" =>"homes#about"

@@ -4,8 +4,6 @@ class Public::TheatersController < ApplicationController
   def index
     @theaters = Theater.all
     @theater = Theater.new
-    @user = current_user
-    @genres = Genre.all
 
   end
 
@@ -16,8 +14,6 @@ class Public::TheatersController < ApplicationController
        redirect_to theater_path(@theater), notice: "新規投稿しました"
     else
     @theaters = Theater.all
-    @user = current_user
-    @genres = Genre.all
        render "index"
     end
   end

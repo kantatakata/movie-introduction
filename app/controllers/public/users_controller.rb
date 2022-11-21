@@ -12,7 +12,6 @@ class Public::UsersController < ApplicationController
       @user = User.find(params[:id])
       @theaters = @user.theaters
       @theater = Theater.new
-      @genres = Genre.all
 
     end
 
@@ -42,7 +41,7 @@ class Public::UsersController < ApplicationController
 
     private
     def user_params
-      params.require(:user).permit(:name, :kana_name, :email, :encrypted_password, :profile_image, :introduction)
+      params.require(:user).permit(:name, :kana_name, :email, :encrypted_password, :profile_image, :introduction, :is_deleted)
     end
 
     def ensure_correct_user
