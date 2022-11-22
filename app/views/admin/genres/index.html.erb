@@ -1,20 +1,21 @@
 <div class="container">
   <%= render 'layouts/errors', obj: @genre %>
   <div class="row">
-    <div class="col-1">
-    </div>
-      <h5 class="d-flex justify-content-left mb-5 bg-light p-2 text-black">ジャンル一覧・追加</h5>
-  </div>
+    <div class="col-10">
+    <h5 class="mb-5 bg-light p-2">ジャンル一覧・追加</h5>
+      <table class="mb-5">
         <%= form_with model: @genre,url:admin_genres_path do |f| %>
-        <div class="field row mb-5">
-          <%= f.label :name, "ジャンル名",class: "col-2" %>
-          <%= f.text_field :name,class: "col-3"%>
-          <div class="col-1">
-          </div>
-          <%= f.submit '新規登録', class: "col-1 btn btn-success" %>
-        </div>
+        <th><%= f.label :name, "ジャンル名"%></th>
+        <th class="col-1"></th>
+        <th><%= f.text_field :name%></th>
+        <th class="col-1"></th>
+        <th><%= f.submit '新規登録', class: "btn btn-success" %></th>
         <% end %>
-    <div class='col-md-5'>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-5'>
      <table class='table'>
       <thead>
         <tr>
@@ -36,4 +37,5 @@
       </tbody>
      </table>
     </div>
+  </div>
 </div>

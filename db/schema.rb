@@ -53,14 +53,14 @@ ActiveRecord::Schema.define(version: 2022_11_20_064503) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "theater_id"
+    t.integer "user_id", null: false
+    t.integer "theater_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 2022_11_20_064503) do
   end
 
   create_table "theater_comments", force: :cascade do |t|
-    t.text "comment"
-    t.integer "user_id"
-    t.integer "theater_id"
+    t.text "comment", null: false
+    t.integer "user_id", null: false
+    t.integer "theater_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -81,10 +81,10 @@ ActiveRecord::Schema.define(version: 2022_11_20_064503) do
   create_table "theaters", force: :cascade do |t|
     t.string "title", null: false
     t.text "introduction", null: false
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "genre_id"
+    t.integer "genre_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2022_11_20_064503) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "introduction"
+    t.text "introduction", null: false
     t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
