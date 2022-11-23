@@ -21,10 +21,11 @@ class Public::UsersController < ApplicationController
     end
     def update
        @user = User.find(params[:id])
-       if @user.update(user_params)
+       if current_user.name != "御客様"
+         @user.update(user_params)
          redirect_to users_path, notice: "会員編集しました"
        else
-         render "edit"
+         redirect_to edit_user_path, alert: "ゲストユーザーは編集できません。"
        end
     end
 
@@ -34,9 +35,13 @@ class Public::UsersController < ApplicationController
 
   def withdraw
     @user = User.find(current_user.id)
+    if current_user.id != "1"
     @user.update(is_deleted: true)
-    reset_session
-    redirect_to root_path, alert:  "退会処理を実行いたしました"
+      reset_session
+      redirect_to root_path, alert:  "退会処理を実行いたしました"
+    else
+      redirect_to confirm_unsubscribe_path
+    end
   end
 
     private

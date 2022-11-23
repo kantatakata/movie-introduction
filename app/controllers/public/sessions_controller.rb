@@ -6,7 +6,7 @@ class Public::SessionsController < Devise::SessionsController
   def new_guest
     user = User.guest
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました。'
   end
 
   # GET /resource/sign_in
@@ -28,7 +28,7 @@ class Public::SessionsController < Devise::SessionsController
 protected  # If you have extra params to permit, append them to the sanitizer.
 
   def after_sign_in_path_for(resource)
-      root_path
+      user_path(current_user)
   end
   def after_sign_out_path_for(resource)
       root_path

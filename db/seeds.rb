@@ -8,5 +8,4 @@
 Admin.create!(
    email: 'admin@admin',
    password: 'charutheater',
-   #password_confirmation:
 )
