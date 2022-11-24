@@ -12,13 +12,12 @@ class Public::UsersController < ApplicationController
       @user = User.find(params[:id])
       @theaters = @user.theaters
       @theater = Theater.new
-
     end
 
     def edit
        @user = User.find(params[:id])
-
     end
+    
     def update
        @user = User.find(params[:id])
       if current_user.name != "御客様"
@@ -32,22 +31,23 @@ class Public::UsersController < ApplicationController
       end
     end
 
-  def unsubscribe
-      @user = current_user
-  end
-
-  def withdraw
-    @user = User.find(current_user.id)
-    if current_user.id != "1"
-    @user.update(is_deleted: true)
-      reset_session
-      redirect_to root_path, alert:  "退会処理を実行いたしました"
-    else
-      redirect_to confirm_unsubscribe_path
+    def unsubscribe
+        @user = current_user
     end
-  end
+  
+    def withdraw
+      @user = User.find(current_user.id)
+      if current_user.id != "1"
+      @user.update(is_deleted: true)
+        reset_session
+        redirect_to root_path, alert:  "退会処理を実行いたしました"
+      else
+        redirect_to confirm_unsubscribe_path
+      end
+    end
 
     private
+    
     def user_params
       params.require(:user).permit(:name, :kana_name, :email, :encrypted_password, :profile_image, :introduction, :is_deleted)
     end

@@ -3,7 +3,6 @@ class Public::SearchesController < ApplicationController
 
   # 会員、映画、ジャンルの検索
   def search
-    # binding.irb
     @model = params[:model]
     @content = params[:content]
     @method = params[:method]

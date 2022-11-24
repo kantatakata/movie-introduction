@@ -12,10 +12,10 @@ class User < ApplicationRecord
   has_many :favorites
   
   # バリデーション
-     validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
-     validates :kana_name, length: { minimum: 2, maximum: 20 }, uniqueness: true
-     validates :email, presence: true
-     validates :encrypted_password, length: { minimum: 5}
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :kana_name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :email, presence: true
+  validates :encrypted_password, length: { minimum: 5}
   
   # ゲストログイン機能
   def self.guest

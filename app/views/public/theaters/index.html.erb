@@ -2,17 +2,13 @@
   <%= render 'layouts/errors', obj: @theater %>
   <div class='row'>
     <div class='col-md-2'>
-
-        <!--会員情報-->
+      <!--会員情報-->
       <%= render 'public/users/info', user: current_user %>
-
-      　<!--映画新規投稿-->
+      <!--映画新規投稿-->
       <%= render 'form', theater: @theater %>
     </div>
-
     <div class='col-md-9 offset-md-1'>
-
-        <!--映画投稿一覧-->
+      <!--映画投稿一覧-->
       <%= render 'index', theaters: @theaters %>
     </div>
   </div>

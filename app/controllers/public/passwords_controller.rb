@@ -2,12 +2,12 @@
 
 class Public::PasswordsController < Devise::PasswordsController
    # ゲスト会員編集・削除防止
-before_action :check_guest, only: :create
+  before_action :check_guest, only: :create
 
   def check_guest
-    if params[:customer][:email].downcase == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーの編集・削除はできません'
- 　  end
+    if params[:user][:email].downcase == 'guest@example.com'
+       redirect_to new_user_session_path, alert: 'ゲストユーザーのパスワード再設定はできません。'
+    end
   end
 
 

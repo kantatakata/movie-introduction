@@ -9,12 +9,14 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   def check_guest
     if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーの編集・削除はできません'
+      redirect_to root_path, alert: 'ゲストユーザーの削除はできません'
     end
   end
+  # 新規登録後
   def after_sign_in_path_for(resource)
     user_path(current_user)
   end
+  # サインアウト後
   def after_sign_out_path_for(resource)
     root_path
   end

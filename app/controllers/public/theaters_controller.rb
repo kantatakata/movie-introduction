@@ -4,7 +4,6 @@ class Public::TheatersController < ApplicationController
   def index
     @theaters = Theater.all
     @theater = Theater.new
-
   end
 
   def create
@@ -33,12 +32,12 @@ class Public::TheatersController < ApplicationController
     if @theater.update(theater_params)
        redirect_to theater_path(@theater), notice: "投稿を編集しました"
     else
-       render :edit
+       render "edit"
     end
-
   end
 
  private
+ 
  def theater_params
    params.require(:theater).permit(:title, :introduction, :genre_id)
  end

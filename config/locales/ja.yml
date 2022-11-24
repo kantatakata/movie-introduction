@@ -222,7 +222,7 @@ ja:
   devise:
     failure:
       already_authenticated: "既にログイン済みです。"
-      # inactive: "Your account is not activated yet."
+      inactive: 'アカウントが有効化されていません。アカウントを有効化してください。'
       invalid: "メールアドレスまたはパスワードが正しくありません。"
       not_found_in_database: "メールアドレスまたはパスワードが正しくありません。"
       # timeout: "Your session expired. Please sign in again to continue."

@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12'>
-    　<h1 class="mb-4">映画投稿詳細</h1>
+      <h1 class="mb-4">映画投稿詳細</h1>
       <table class='table table-hover table-inverse'>
         <thead>
           <tr>
@@ -19,7 +19,6 @@
             <td><%= @genres.find(@theater.genre_id).name %></td>
             <td><%= @theater.introduction %></td>
             <td><%= link_to "編集", edit_theater_path(@theater.id), class: "btn btn-info pull-right" %></td>
-
             <td class=<%= "favorite-" + @theater.id.to_s %> >
             <%= render "public/favorites/btn", theater: @theater %>
             </td>
@@ -29,7 +28,6 @@
           </tr>
         </tbody>
       </table>
-
       <div class="theater-comments-index">
       　<%= render "public/theater_comments/index", theater: @theater %>
       </div>

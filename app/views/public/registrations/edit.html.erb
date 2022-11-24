@@ -22,7 +22,7 @@
             <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
           </div>
           <div class="actions">
-        　　	<%= link_to "前のページに戻る", edit_user_path(@user.id), class: "btn btn-primary" %>
+            <%= link_to "前のページに戻る", edit_user_path(@user.id), class: "btn btn-primary" %>
             <%= f.submit "パスワード更新", class: "btn btn-success" %>
           </div>
         <% end %>

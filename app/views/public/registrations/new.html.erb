@@ -2,7 +2,7 @@
   <%= render "public/shared/error_messages", resource: @user %>
   <div class="row">
     <div class="col-6">
-    　<section class="inner">
+      <section class="inner">
        <h2 class="section-ttl mb-5">新規会員登録</h2>
         <%= form_with model:@user,url: user_registration_path do |f| %>
             <table>
@@ -39,10 +39,10 @@
               </tbody>
             </table>
         <% end %>
-      　<h2 class="section-ttl">既に登録済みの方</h2>
-    　　<p><%= link_to "こちら", new_user_session_path, class: "underline text-danger px-3" %>からログインしてください。</p>
-  　　</section>
-　　</div>
-　</div>
+        <h2 class="section-ttl">既に登録済みの方</h2>
+        <p><%= link_to "こちら", new_user_session_path, class: "underline text-danger px-3" %>からログインしてください。</p>
+      </section>
+    </div>
+  </div>
 </div>
 

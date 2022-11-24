@@ -16,7 +16,7 @@
             <td><%= theater.genre.name %></td>
             <td><%= theater.introduction %></td>
             <td class=<%= "favorite-" + theater.id.to_s %> >
-                <%= render "public/favorites/btn", theater: theater %>
+            <%= render "public/favorites/btn", theater: theater %>
             </td>
             <td><%= render "public/theater_comments/counter", theater: theater %></td>
           </tr>

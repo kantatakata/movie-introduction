@@ -1,12 +1,10 @@
 class Theater < ApplicationRecord
-
   has_many :theater_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   belongs_to :user
   belongs_to :genre
   
   validates :title,presence:true
-  # validates :genre_id,presence:true
   validates :introduction,presence:true,length:{maximum:200}
   
   # いいね機能

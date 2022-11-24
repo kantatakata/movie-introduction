@@ -16,26 +16,26 @@
   </div>
   <div class="row">
     <div class='col-5'>
-     <table class='table'>
-      <thead>
-        <tr>
-         <th>ジャンル</th>
-         <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @genres.each do |genre| %>
-       <tr>
-        <td><%= genre.name %></td>
-        <td>
-        <%= link_to edit_admin_genre_path(genre.id),class: 'nav-link text-light' do %>
-        <button type="button" class="btn btn-success">編集する</button>
-        <% end %>
-        </td>
-       </tr>
-        <% end %>
-      </tbody>
-     </table>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>ジャンル</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr>
+            <td><%= genre.name %></td>
+            <td>
+            <%= link_to edit_admin_genre_path(genre.id),class: 'nav-link text-light' do %>
+            <button type="button" class="btn btn-success">編集する</button>
+            <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
