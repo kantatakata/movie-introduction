@@ -210,12 +210,15 @@ ja:
         kana_name: "フリガナ"
         name: "名前"
         introduction: "自己紹介文"
-      genre: 
+        encrypted_password: "パスワード（確認用）"
+        password: "パスワード"
+        email: "メールアドレス"
+      genre:
         name: "ジャンル"
       theater:
         title: "タイトル"
         introduction: "紹介文"
-        genre_id: "ジャンル"
+        genre: "ジャンル"
   devise:
     failure:
       already_authenticated: "既にログイン済みです。"
@@ -236,6 +239,6 @@ ja:
       already_confirmed: "メールアドレスは既に登録されています。"
       # not_found: "not found"
       # not_locked: "was not locked"
-      not_saved: 
+      not_saved:
         one: "エラーが発生しました。以下ご確認お願いいたします。"
         other: "エラーが発生しました。以下ご確認お願いいたします。"

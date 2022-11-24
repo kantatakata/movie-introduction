@@ -21,7 +21,7 @@ class Admin::UsersController < ApplicationController
        if @user.update(user_params)
          redirect_to admin_user_path(@user), notice: "会員情報の編集に成功しました"
        else
-         render "abmin_user_edit"
+         render "edit"
        end
     end
 

@@ -21,12 +21,15 @@ class Public::UsersController < ApplicationController
     end
     def update
        @user = User.find(params[:id])
-       if current_user.name != "御客様"
-         @user.update(user_params)
-         redirect_to users_path, notice: "会員編集しました"
-       else
+      if current_user.name != "御客様"
+        if @user.update(user_params)
+          redirect_to users_path, notice: "会員編集しました"
+        else
+          render :edit
+        end
+      else
          redirect_to edit_user_path, alert: "ゲストユーザーは編集できません。"
-       end
+      end
     end
 
   def unsubscribe
