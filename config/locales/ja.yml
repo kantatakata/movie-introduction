@@ -223,8 +223,8 @@ ja:
     failure:
       already_authenticated: "既にログイン済みです。"
       inactive: 'アカウントが有効化されていません。アカウントを有効化してください。'
-      invalid: "メールアドレスまたはパスワードが正しくありません。"
-      not_found_in_database: "メールアドレスまたはパスワードが正しくありません。"
+      invalid: "名前またはパスワードが正しくありません。"
+      not_found_in_database: "名前またはパスワードが正しくありません。"
       # timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "続けるにはログインが必要です。"
     registrations:
