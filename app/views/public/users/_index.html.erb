@@ -12,7 +12,7 @@
         <% @users.each do |user| %>
           <tr>
             <td><%= image_tag user.get_profile_image, size:'100x100' %></td>
-            <td><%= user.name %></td>
+            <td><%= link_to user.name,user %></td>
             <td><%= user.introduction %></td>
             <td><%= link_to "おすすめ作品",user_path(user.id) %></td>
           </tr>

@@ -30,7 +30,15 @@
 
 
 ## 設計書
- 作成中です
+- ul.flow
+- 画面設計書
+- ER図
+ https://drive.google.com/file/d/19I7Q5TGKhnIWQZRjKWuUPSpO7jDuN-TU/view?usp=sharing
+- テーブル定義書
+https://docs.google.com/spreadsheets/d/1T6gBuat4NIMW-T8g6YqcgS_WJH9hn2ddxfT70QsuxS4/edit?usp=sharing
+- アプリケーション詳細設計書
+https://docs.google.com/spreadsheets/d/11qeW3ve0ATiuqKbDV7EMDi912U8SooZubueV9tJS4So/edit?usp=sharing
+
 
 ## 開発環境
 - OS：Linux(CentOS)

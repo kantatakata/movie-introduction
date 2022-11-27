@@ -1,17 +1,17 @@
-<div class="container">
+<div class="container mt-4">
   <%= render 'layouts/errors', obj: @genre %>
   <div class="row">
     <div class="col-10">
       <h5 class="mb-5 bg-light p-2">ジャンル編集</h5>
-      <table>
-        <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
-        <th><%= f.label :name, "ジャンル名" %></th>
-        <th class="col-1"></th>
-        <th><%= f.text_field :name%></th>
-        <th class="col-1"></th>
-        <th><%= f.submit '変更を保存', class: "btn btn-success" %></th>
-        <% end %>
-      </table>
+      <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
+        <table>
+          <th><%= f.label :name, "ジャンル名" %></th>
+          <th class="col-1"></th>
+          <th><%= f.text_field :name%></th>
+          <th class="col-1"></th>
+          <th><%= f.submit '変更を保存', class: "btn btn-success" %></th>
+        </table>
+      <% end %>
     </div>
   </div>
 </div>

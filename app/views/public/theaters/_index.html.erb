@@ -1,4 +1,3 @@
-    <h3>映画投稿一覧</h3>
       <table class='table table-hover table-inverse'>
         <thead>
           <tr>
@@ -12,7 +11,7 @@
         <tbody>
         <% theaters.each do |theater| %>
           <tr>
-            <td><%= link_to theater.title,theater, class: "theater_#{theater.id}" %></td>
+            <td><%= link_to theater.title,theater %></td>
             <td><%= theater.genre.name %></td>
             <td><%= theater.introduction %></td>
             <td class=<%= "favorite-" + theater.id.to_s %> >

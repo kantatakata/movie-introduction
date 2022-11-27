@@ -12,8 +12,17 @@ class Public::TheatersController < ApplicationController
     if @theater.save
        redirect_to theater_path(@theater), notice: "新規投稿しました"
     else
-    @theaters = Theater.all
-       render "index"
+      @theaters = Theater.all
+      @users = User.all
+      @user = current_user
+      ##pp request.referer
+      refere = Rails.application.routes.recognize_path(request.referer)
+      ##pp refere
+      if refere[:controller] == 'public/users' && refere[:action] == 'show'
+        @user = User.find(refere[:id])
+        @theaters = @user.theaters
+      end
+      render "#{refere[:controller]}/#{refere[:action]}"
     end
   end
 
@@ -37,11 +46,11 @@ class Public::TheatersController < ApplicationController
   end
 
  private
- 
+
  def theater_params
    params.require(:theater).permit(:title, :introduction, :genre_id)
  end
- 
+
   def ensure_correct_user
     @theater = Theater.find(params[:id])
     unless @theater.user == current_user
