@@ -11,26 +11,16 @@ Admin.create!(
 )
 
 [
-#  ['test1@test.com', '山田太郎', 'ヤマダタロウ', '111111', profile_image: File.open('./app/assets/images/man.1.png') ],
-#  ['test2@test.com', '山田花子', 'ヤマダハナコ', '111111',profile_image: File.open('./app/assets/images/woman.png') ],
-#  ['test3@test.com', '田中太郎', 'タナカタロウ', '111111',profile_image: File.open('./app/assets/images/man.2.png') ],
-#  ['test4@test.com', '青森太郎', 'アオモリタロウ', '111111',profile_image: File.open('./app/assets/images/man.3.png') ],
-#  ['test5@test.com', '山梨鉄平', 'ヤマナシテッペイ', '111111',profile_image: File.open('./app/assets/images/man.4.png') ],
-#  ['test6@test.com', '田中花子', 'タナカハナコ', '111111',profile_image: File.open('./app/assets/images/woman.png') ]
-  ['test1@test.com', '山田太郎', 'ヤマダタロウ', '111111', './app/assets/images/man1.png', 'man1.png'],
-  ['test2@test.com', '山田花子', 'ヤマダハナコ', '111111', './app/assets/images/woman.png', 'woman.png' ],
-  ['test3@test.com', '田中太郎', 'タナカタロウ', '111111', './app/assets/images/man2.png', 'man2.png' ],
-  ['test4@test.com', '青森太郎', 'アオモリタロウ', '111111', './app/assets/images/man3.png','man3.png' ],
-  ['test5@test.com', '山梨鉄平', 'ヤマナシテッペイ', '111111', './app/assets/images/man4.png','man4.png' ],
-  ['test6@test.com', '田中花子', 'タナカハナコ', '111111', './app/assets/images/woman.png','woman.png' ]
-].each do |email, name,  kana_name, password, profile_image, filename|
+  ['test1@test.com', '山田太郎', 'ヤマダタロウ', '宜しくです。', '111111', './app/assets/images/man1.png', 'man1.png'],
+  ['test2@test.com', '山田花子', 'ヤマダハナコ', 'たくさん投稿していきます。',  '111111', './app/assets/images/woman.png', 'woman.png' ],
+  ['test3@test.com', '田中太郎', 'タナカタロウ', 'はじめまして！', '111111', './app/assets/images/man2.png', 'man2.png' ],
+  ['test4@test.com', '青森太郎', 'アオモリタロウ', '映画関係の仕事をしています。', '111111', './app/assets/images/man3.png','man3.png' ],
+  ['test5@test.com', '山梨鉄平', 'ヤマナシテッペイ', '宜しくお願い致します。', '111111', './app/assets/images/man4.png','man4.png' ],
+  ['test6@test.com', '田中花子', 'タナカハナコ', 'みなさんの投稿を楽しみにしています。', '111111', './app/assets/images/woman.png','woman.png' ]
+].each do |email, name,  kana_name, introduction, password, profile_image, filename|
   User.create!(
-    #{ email: email, name: name, kana_name: kana_name, encrypted_password: encrypted_password, profile_image: profile_image}
-    { email: email, name: name, kana_name: kana_name, password: password, profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open(profile_image), filename: filename)}
+    { email: email, name: name, kana_name: kana_name, introduction: introduction, password: password, profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open(profile_image), filename: filename)}
   )
-  #image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}画像のpath"), filename:"画像の名前"),
-  #byebug
-  #user.attach(io: File.open(profile_image), filename: filename)
 end
 
  Genre.create!(
