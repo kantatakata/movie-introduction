@@ -37,10 +37,14 @@ class Public::UsersController < ApplicationController
 
     def withdraw
       @user = User.find(current_user.id)
-      @user.update(is_deleted: true)
+      if current_user.email != "guest@example.com"
+        @user.update(is_deleted: true)
         reset_session
         redirect_to root_path, alert:  "退会処理を実行いたしました"
-      
+      else
+      flash[:alert]= "ゲストユーザーは退会できません"
+      render :unsubscribe
+      end
     end
 
     private
