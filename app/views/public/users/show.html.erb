@@ -7,7 +7,7 @@
       <!--映画新規投稿-->
       <%= render 'public/theaters/form', theater: @theater %>
     </div>
-    <div class='col-md-9 offset-md-1 mt-4'>
+    <div class='col-md-9 offset-md-1 mt-4 mb-5'>
       <h3><%= @user.name %>さんのおすすめ作品一覧</h3>
       <!--映画投稿一覧-->
       <%= render 'public/theaters/index', theaters: @theaters %>
