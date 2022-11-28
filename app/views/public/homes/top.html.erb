@@ -12,7 +12,7 @@
     </div>
   </div>
 </div>
-<h3 class="text-center">新着映画投稿いいね数ランキングTOP3</h3>
+<h4 class="text-center">新着映画投稿いいね数ランキングTOP3</h4>
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -27,14 +27,14 @@
         <tbody>
           <% @theater_favorite_ranks.each.with_index(1) do |theater, i| %>
           <tr>
-            <td class="p-3 font-weight-bold text-danger">第<%= i %>位</td>
+            <td class="col-1 font-weight-bold text-danger">第<%= i %>位</td>
             <td><%= theater.title %></td>
             <td><%= theater.introduction %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
-    <h6 class="text-right">※ 同率の場合は新規投稿順に順位が表示されます</h6>
+    <h6 class="text-right mb-5">※ 同率の場合は新規投稿順に順位が表示されます</h6>
     </div>
   </div>
 </div>
